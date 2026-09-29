@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* Dana */
+
 @font-face {
     font-family: "Dana";
     src: url("./fonts/Dana/woff2/DanaFaNum-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,6 +18,7 @@
     src: url("./fonts/Dana/woff2/DanaFaNum-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -19,13 +26,18 @@
     src: url("./fonts/Dana/woff2/DanaFaNum-DemiBold.woff2") format("woff2");
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
+
+
+/* Morabba */
 
 @font-face {
     font-family: "Morabba";
     src: url("./fonts/Morabba/woff2/Morabba-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -33,6 +45,7 @@
     src: url("./fonts/Morabba/woff2/Morabba-Medium.woff2") format("woff2");
     font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -40,7 +53,11 @@
     src: url("./fonts/Morabba/woff2/Morabba-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
+
+
+/* Design System */
 
 @theme {
     --font-dana: "Dana", sans-serif;
@@ -53,8 +70,76 @@
     --color-muted: #64748B;
 }
 
+
+/* Base */
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Dana", sans-serif;
-    background-color: #F8FAFC;
-    color: #0F172A;
+}
+
+
+/* View Transition */
+
+::view-transition-group(root) {
+    animation: none;
+}
+
+::view-transition-image-pair(root) {
+    isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    display: block;
+    mix-blend-mode: normal;
+}
+
+
+/* Theme Toggle */
+
+.theme-toggle-icon {
+    transition:
+        transform 300ms ease,
+        opacity 300ms ease;
+}
+
+.theme-toggle-icon--sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-icon--moon {
+    position: absolute;
+    opacity: 0;
+    transform: rotate(-30deg) scale(0.7);
+}
+
+.dark .theme-toggle-icon--sun {
+    opacity: 0;
+    transform: rotate(30deg) scale(0.7);
+}
+
+.dark .theme-toggle-icon--moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .theme-toggle-icon {
+        transition: none;
+    }
+
 }

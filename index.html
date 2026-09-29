@@ -3,44 +3,75 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <meta
         name="description"
-        content="اجاره خودرو آسان، سریع و مطمئن"
+        content="رنتو؛ اجاره خودرو آسان، سریع و مطمئن"
     >
 
-    <title>اجاره خودرو | رنتو</title>
+    <meta
+        name="color-scheme"
+        content="light dark"
+    >
+
+    <title>رنتو | اجاره خودرو</title>
+    <link rel="shortcut icon" href="src/image/main-logo.png" type="image/x-icon">
+
+    <!-- Prevent theme flash -->
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem("theme");
+
+            const systemPrefersDark = window.matchMedia(
+                "(prefers-color-scheme: dark)"
+            ).matches;
+
+            if (
+                savedTheme === "dark" ||
+                (!savedTheme && systemPrefersDark)
+            ) {
+                document.documentElement.classList.add("dark");
+            }
+        })();
+    </script>
 
     <link rel="stylesheet" href="./src/output.css">
 </head>
 
-<body class="bg-background text-text">
+<body class="bg-background text-text dark:bg-slate-900 dark:text-white">
 
     <!-- Header -->
-    <header class="px-4 pt-4 sm:px-6">
+    <header class="relative z-50 px-4 pt-4 sm:px-6">
 
         <nav
-            class="mx-auto flex h-18 max-w-7xl items-center justify-between rounded-2xl bg-white px-5 shadow-sm sm:px-7"
+            class="mx-auto flex h-18 max-w-7xl items-center justify-between rounded-2xl bg-white px-5 shadow-sm dark:bg-slate-800 dark:shadow-none sm:px-7"
             aria-label="ناوبری اصلی"
         >
 
-<!-- Logo -->
-<a
-    href="#"
-    class="flex shrink-0 items-center gap-2.5"
-    aria-label="رنتو - صفحه اصلی"
->
-    <img
-        src="./src/image/rento-logo.png"
-        alt=""
-        class="size-14 shrink-0 object-contain"
-    >
+            <!-- Logo -->
+            <a
+                href="#"
+                class="flex shrink-0 items-center gap-2.5"
+                aria-label="رنتو - صفحه اصلی"
+            >
+                <img
+                    src="./src/image/main-logo.png"
+                    alt="رنتو"
+                    class="size-14 shrink-0 object-contain"
+                >
 
-    <span class="font-morabba text-3xl font-bold text-primary">
-        رنتو
-    </span>
-</a>
+                <span
+                    class="font-morabba text-3xl font-bold text-primary dark:text-white"
+                >
+                    رنتو
+                </span>
+            </a>
+
 
             <!-- Navigation -->
             <ul class="hidden items-center gap-8 md:flex">
@@ -48,7 +79,7 @@
                 <li>
                     <a
                         href="#booking"
-                        class="font-dana text-sm text-text transition-colors duration-200 hover:text-primary"
+                        class="font-dana text-base font-medium text-text transition-colors duration-200 hover:text-primary dark:text-white dark:hover:text-orange-400"
                     >
                         رزرو خودرو
                     </a>
@@ -57,7 +88,7 @@
                 <li>
                     <a
                         href="#services"
-                        class="font-dana text-sm text-muted transition-colors duration-200 hover:text-primary"
+                        class="font-dana text-base font-medium text-muted transition-colors duration-200 hover:text-primary dark:text-white dark:hover:text-orange-400"
                     >
                         خدمات ما
                     </a>
@@ -66,7 +97,7 @@
                 <li>
                     <a
                         href="#blog"
-                        class="font-dana text-sm text-muted transition-colors duration-200 hover:text-primary"
+                        class="font-dana text-base font-medium text-muted transition-colors duration-200 hover:text-primary dark:text-white dark:hover:text-orange-400"
                     >
                         بلاگ
                     </a>
@@ -75,7 +106,7 @@
                 <li>
                     <a
                         href="#about"
-                        class="font-dana text-sm text-muted transition-colors duration-200 hover:text-primary"
+                        class="font-dana text-base font-medium text-muted transition-colors duration-200 hover:text-primary dark:text-white dark:hover:text-orange-400"
                     >
                         درباره ما
                     </a>
@@ -84,9 +115,9 @@
                 <li>
                     <a
                         href="#contact"
-                        class="font-dana text-sm text-muted transition-colors duration-200 hover:text-primary"
+                        class="font-dana text-base font-medium text-muted transition-colors duration-200 hover:text-primary dark:text-white dark:hover:text-orange-400"
                     >
-                        تماس با ما
+                        ارتباط با ما
                     </a>
                 </li>
 
@@ -94,12 +125,12 @@
 
 
             <!-- Actions -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-5">
 
                 <!-- Search -->
                 <button
                     type="button"
-                    class="text-muted transition-colors duration-200 hover:text-primary"
+                    class="ms-2 text-muted transition-colors duration-200 hover:text-primary dark:text-white dark:hover:text-orange-400"
                     aria-label="جستجو"
                 >
                     <svg
@@ -114,12 +145,12 @@
                             cx="11"
                             cy="11"
                             r="7"
-                        />
+                        ></circle>
 
                         <path
                             stroke-linecap="round"
                             d="m20 20-4-4"
-                        />
+                        ></path>
                     </svg>
                 </button>
 
@@ -129,7 +160,6 @@
                     href="#login"
                     class="flex items-center gap-2 rounded-xl bg-secondary px-4 py-2.5 font-dana text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
-
                     <svg
                         class="size-5"
                         viewBox="0 0 24 24"
@@ -142,14 +172,63 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             d="M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.25a7.5 7.5 0 0 1 15 0"
-                        />
+                        ></path>
                     </svg>
 
                     <span>
                         ورود / ثبت‌نام
                     </span>
-
                 </a>
+
+
+                <!-- Theme Toggle -->
+                <button
+                    id="theme-toggle"
+                    type="button"
+                    class="relative flex size-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition-colors duration-200 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:hover:border-slate-600 dark:hover:bg-slate-700"
+                    aria-label="فعال کردن حالت تاریک"
+                    aria-pressed="false"
+                >
+
+                    <!-- Sun -->
+                    <svg
+                        class="theme-toggle-icon theme-toggle-icon--sun size-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="4"
+                        ></circle>
+
+                        <path
+                            stroke-linecap="round"
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                        ></path>
+                    </svg>
+
+
+                    <!-- Moon -->
+                    <svg
+                        class="theme-toggle-icon theme-toggle-icon--moon size-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        aria-hidden="true"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5a8.5 8.5 0 1 0 12 12Z"
+                        ></path>
+                    </svg>
+
+                </button>
 
             </div>
 
@@ -158,12 +237,13 @@
     </header>
 
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main>
 
-        <!-- Page sections will be added here -->
-
     </main>
+
+
+    <script src="./script.js"></script>
 
 </body>
 
