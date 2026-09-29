@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Dana";
+    src: url("./fonts/Dana/woff2/DanaFaNum-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Dana";
+    src: url("./fonts/Dana/woff2/DanaFaNum-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Dana";
+    src: url("./fonts/Dana/woff2/DanaFaNum-DemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Morabba";
+    src: url("./fonts/Morabba/woff2/Morabba-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Morabba";
+    src: url("./fonts/Morabba/woff2/Morabba-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Morabba";
+    src: url("./fonts/Morabba/woff2/Morabba-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@theme {
+    --font-dana: "Dana", sans-serif;
+    --font-morabba: "Morabba", sans-serif;
+
+    --color-primary: #0F4C81;
+    --color-secondary: #FF8A3D;
+    --color-background: #F8FAFC;
+    --color-text: #0F172A;
+    --color-muted: #64748B;
+}
+
+body {
+    font-family: "Dana", sans-serif;
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
